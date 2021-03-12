@@ -1,7 +1,5 @@
 # ML-for-Trading-Compare Methods
 
-Project 8 Report 
-
 By: Sarah Hernandez 
 
 **Framing the Problem:** 
@@ -16,7 +14,9 @@ To test the policy, we iterate over each date. For each day, we find the discret
 
 As you can see in the figure below, the Q-learner was able to converge in just a few epochs. This was true for each test case I threw at it. I am tempted to lower the patience to save on run time, but will leave it at 10 in case a particularly onerous test case awaits the learner come grade time.  
 
-![](Aspose.Words.eaf09d6f-3901-4bf8-beac-8fa20a65481c.001.jpeg)
+<p align="center">
+  <img src="Aspose.Words.eaf09d6f-3901-4bf8-beac-8fa20a65481c.001.jpeg"/>
+</p>
 
 **Experiment 1:** 
 
@@ -24,8 +24,9 @@ For the first experiment, I compared my Manual Strategy, Strategy Learner, and t
 
 As you can see in the graph below, while the Manual Strategy did outperform the benchmark, the Strategy Learner blew both of its competitors out of the water, showing a clear upward trend throughout the entirety of the sample period. The benchmark actually loses value, coming in at a 0.99 cumulative return. The manual strategy barely manages to return a profit with a 1.01 return. The strategy learner, however, emerges as the clear winner, with a final cumulative return of 1.10. 
 
-![](Aspose.Words.eaf09d6f-3901-4bf8-beac-8fa20a65481c.002.jpeg)
-
+<p align="center">
+  <img src="Aspose.Words.eaf09d6f-3901-4bf8-beac-8fa20a65481c.002.jpeg"/>
+</p>
 Given in-sample data, I would expect Strategy Learner to win more often than not and to produce results similar to that as shown above. However, the market can be unpredictable, and it is possible my chosen metrics will one day be thrown out the window, and a slice of in-sample data results in a confusing correlation between my metrics and the rewards function, resulting in strategy learner paling in comparison to the manual or benchmark trades. To guard strategy learner from this possibility, as a hedge fund manager, I would use multiple, time-trusted metrics to decide my trades.  
 
 **Experiment 2:** 
@@ -34,8 +35,10 @@ Though our strategy learner greatly outperformed the benchmark and manual strate
 
 To test this hypothesis, I created an array of increasing impact values from 0.0 to 0.01. I used the JPM symbol with a start date of January 1st, 2008 and an end date of December 31st 2009. The starting cash value in each case was $100,000. Then for each impact, I ran strategy learner and recorded the resultant cumulative return and sharpe ratio. Below are the resultant plots: 
 
-![](Aspose.Words.eaf09d6f-3901-4bf8-beac-8fa20a65481c.003.jpeg)
-
-![](Aspose.Words.eaf09d6f-3901-4bf8-beac-8fa20a65481c.004.jpeg)
-
+<p align="center">
+  <img src="Aspose.Words.eaf09d6f-3901-4bf8-beac-8fa20a65481c.003.jpeg"/>
+</p>
+<p align="center">
+  <img src="Aspose.Words.eaf09d6f-3901-4bf8-beac-8fa20a65481c.004.jpeg"/>
+</p>
 As expected, both cumulative return and Sharpe Ratio decrease as impact increases. In fact, a large enough impact was enough to reduce cumulative return to below 1.0! This suggests that no matter how powerful our strategy learner might be in its predictions, we are still subject to market impacts and our real resultant cumulative returns will almost certainly never achieve the values we calculate while training.  
